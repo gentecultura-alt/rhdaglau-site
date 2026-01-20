@@ -38,7 +38,7 @@ const Header = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-5"
+          : "bg-white/80 backdrop-blur-sm py-5"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -46,11 +46,8 @@ const Header = () => {
         <Link href="/">
           <a className="flex items-center gap-2 group">
             <div className="relative">
-              <span className={cn(
-                "font-serif text-2xl font-bold transition-colors",
-                isScrolled ? "text-blue-800" : "text-white"
-              )}>RH da Glau</span>
-              <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="font-serif text-2xl font-bold text-sky-600">RH da Glau</span>
+              <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </div>
           </a>
         </Link>
@@ -61,17 +58,14 @@ const Header = () => {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className={cn(
-                "text-sm font-medium transition-colors relative group",
-                isScrolled ? "text-blue-700 hover:text-blue-900" : "text-white/90 hover:text-white"
-              )}
+              className="text-sm font-medium text-gray-600 hover:text-sky-600 transition-colors relative group"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
           <Button 
-            className="bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold rounded-full shadow-lg shadow-amber-500/30"
+            className="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold rounded-full shadow-lg shadow-orange-300/30"
             onClick={() => window.open("https://wa.me/5511994348590", "_blank")}
           >
             Fale Comigo
@@ -80,10 +74,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className={cn(
-            "md:hidden p-2",
-            isScrolled ? "text-blue-700" : "text-white"
-          )}
+          className="md:hidden p-2 text-gray-600"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
@@ -92,18 +83,18 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-blue-100 shadow-lg p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-sky-100 shadow-lg p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-left py-2 px-4 hover:bg-blue-50 rounded-lg text-blue-700 font-medium"
+              className="text-left py-2 px-4 hover:bg-sky-50 rounded-lg text-gray-600 font-medium"
             >
               {link.name}
             </button>
           ))}
           <Button 
-            className="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold mt-2 rounded-full"
+            className="w-full bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold mt-2 rounded-full"
             onClick={() => window.open("https://wa.me/5511994348590", "_blank")}
           >
             Fale Comigo
